@@ -1,0 +1,27 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block body %}
+    <form action="{% url 'save_edit' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <label for="exampleFormControlInput1">Title</label>
+                    <input type="text" name="title" class="form-control" id="exampleFormControlUnput1"
+                           value="{{ entryTitle }}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="exampleFormCOntrolTextarea1">Text</label>
+                    <textarea class="form-control" name="text" id="exampleFormCOntrolTextarea1"
+                              rows="8">{{ entry }}</textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-outline-dark" style="margin-top: 10px">Submit</button>
+        </div>
+    </form>
+
+{% endblock %}
